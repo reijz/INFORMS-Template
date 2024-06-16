@@ -1031,12 +1031,16 @@
 
 \def\setoddRH{\hbox to \textwidth{\fs.7.8.\tabcolsep0pt
   \begin{tabular*}{\textwidth}[b]{l@{\extracolsep\fill}r}
-  {\theRRHFirstLine}&\\ {\theRRHSecondLine}&  \raisebox{0pt}[0pt][0pt]{\fs.10.10.\thepage}\\[-4pt]
+  %{\theRRHFirstLine}&\\ 
+  %{\theRRHSecondLine}
+  {} &  \raisebox{0pt}[0pt][0pt]{\fs.10.10.\thepage}\\[-4pt]
   \rlap{\VRHDW{0.5pt}{0pt}{\textwidth}}&\\
   \end{tabular*}}}
 \def\setevenRH{\hbox to \textwidth{\fs.7.8.\tabcolsep0pt
   \begin{tabular*}{\textwidth}[b]{l@{\extracolsep\fill}r}
-  &{\theLRHFirstLine}\\ \raisebox{0pt}[0pt][0pt]{\fs.10.10.\thepage}&{\theLRHSecondLine}\\[-4pt]
+  %&{\theLRHFirstLine}\\
+  \raisebox{0pt}[0pt][0pt]{\fs.10.10.\thepage}&{}%{\theLRHSecondLine}
+  \\[-4pt]
   \rlap{\VRHDW{0.5pt}{0pt}{\textwidth}}&\\
   \end{tabular*}}}
 
@@ -1161,10 +1165,10 @@
 
 \def\@maketitle{%
   \newpage
-  \theARTICLETOP
+  % \theARTICLETOP
   \theARTICLETITLE
   \theARTICLEAUTHORS\removelastskip
-\rule{\textwidth}{1pt}
+%\rule{\textwidth}{1pt}
   \theARTICLEABSTRACT
 %  \theARTICLERULE
 }
@@ -1187,7 +1191,7 @@
   \HOOKtop
   \begin{flushleft}
   \vspace*{0pt}%
-  \TITLEfont\HD{24}{0}\sffamily\bfseries\theTITLE\HD{0}{15}%
+  \TITLEfont\HD{22}{0}\sffamily\bfseries\theTITLE\HD{0}{15}%
   \end{flushleft}}
 
 \def\EMAIL#1{#1}% use within AFF
@@ -1930,17 +1934,20 @@
 \def\ABSfont{\EGT}
 
 \def\theARTICLEABSTRACT{%
-%  \begin{Center}
-  \HOOKb
-  \vspace*{18pt}
-  \begin{minipage}[t]{.3\textwidth}\parindent1em\ABSfont
-  \noindent
-  \textcolor{red}{Authors are encouraged to submit new papers to INFORMS journals by means of
-	a style file template, which includes the journal title. However, use of a
-	template does not certify that the paper has been accepted for publication
-	in the named journal. INFORMS journal templates are for the exclusive purpose of submitting to an INFORMS journal and are not intended to be a true representation of the article's final published form. Use of this template to distribute papers in print or online or to submit papers to another non-INFORM publication is prohibited.}
-  \end{minipage}\hfill  \begin{minipage}[t]{.65\textwidth}\parindent1em
+\begin{Center}
+  % \HOOKb
+  % \vspace*{18pt}
+  % \begin{minipage}[t]{.3\textwidth}\parindent1em\ABSfont
+  % \noindent
+  % \textcolor{red}{Authors are encouraged to submit new papers to INFORMS journals by means of
+	% a style file template, which includes the journal title. However, use of a
+	% template does not certify that the paper has been accepted for publication
+	% in the named journal. INFORMS journal templates are for the exclusive purpose of submitting to an INFORMS journal and are not intended to be a true representation of the article's final published form. Use of this template to distribute papers in print or online or to submit papers to another non-INFORM publication is prohibited.}
+  % \end{minipage}\hfill  
+  \begin{minipage}[t]{.86\textwidth}
+    \parindent1em
     \ABSfont
+    \noindent\hrulefill\\
     \noindent\theABSTRACT\endgraf
     \vskip5pt
     \theFUNDING
@@ -1953,7 +1960,7 @@
   \noindent  \hrulefill
   \end{minipage}%\par%
   \vspace*{0pt}
-  %\end{Center}
+  \end{Center}
   }
 
 %SSSSSSS

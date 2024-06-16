@@ -3,6 +3,7 @@
 %%	Author Submission Template for Operations Research (OPRE)
 %%	INFORMS, <informs@informs.org>
 %%	Ver. 1.00, June 2024
+%%  Modified by Jiheng Zhang @ UST
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -13,12 +14,18 @@
 %
 % \documentclass[opre,dblanonrev]{informs4}
 \documentclass[opre,sglanonrev]{informs4}
-\usepackage{eqndefns-left} % For checking the display equation width and equation environment definitions %
+% \usepackage{eqndefns-left} % For checking the display equation width and equation environment definitions %
 \RequirePackage{tgtermes}
 \RequirePackage{newtxtext}
 \RequirePackage{newtxmath}
 \RequirePackage{bm}
 \RequirePackage{endnotes}
+
+% Load the fix-cm package
+\usepackage{fix-cm}
+% Manually declare missing font shapes if necessary
+\DeclareFontShape{OML}{cmm}{b}{it}{<->cmmib10}{}
+\DeclareFontShape{OMS}{cmsy}{b}{n}{<->cmsy10}{}
 
 %\OneAndAHalfSpacedXI
 \OneAndAHalfSpacedXII % Current default line spacing
@@ -30,6 +37,14 @@
 \usepackage{algpseudocode}
 \usepackage{tikz}
 % Private macros here (check that there is no clash with the style)
+
+\usepackage{hyperref}       % hyperlinks
+\hypersetup{
+  colorlinks=true,
+  linkcolor=red,
+  urlcolor=magenta,
+  citecolor=blue
+}
 
 % Natbib setup for author-number style
 \usepackage{natbib}
@@ -83,15 +98,11 @@
 % \RUNAUTHOR{Jones et al.} % for four or more authors
 % Enter authors following the given pattern:
 %\RUNAUTHOR{}
-\RUNAUTHOR{Smith and Johnson}
 
 % Title or shortened title suitable for running heads. Sample:
-% \RUNTITLE{Predictive Maintenance in Manufacturing}
-% Enter the (shortened) title:
-\RUNTITLE{Optimal Resource Allocation in Humanitarian Logistics}
+% \RUNTITLE{}
 
-% Full title. Sample:
-% \TITLE{Optimal Resource Allocation in Humanitarian Logistics: A Stochastic Programming Approach}
+
 % Enter the full title:
 \TITLE{Optimal Resource Allocation in Humanitarian Logistics: A Stochastic Programming Approach}
 
@@ -117,16 +128,10 @@ University of ABC, \EMAIL{emily.johnson@abc.edu}}
 In humanitarian logistics, efficient resource allocation is paramount for ensuring timely and effective delivery of aid to populations in need. This paper presents a novel approach to optimize resource allocation in humanitarian logistics using stochastic programming. By integrating stochastic elements into the modeling framework, our approach accounts for uncertainty in demand, supply, and transportation constraints, providing decision-makers with robust and adaptable solutions. We develop a mixed-integer linear programming formulation to minimize the total cost of relief operations while meeting demand requirements under varying scenarios. Through computational experiments and a case study, we demonstrate the effectiveness of our approach in improving decision-making and resource utilization in humanitarian relief efforts. Our findings underscore the importance of incorporating stochastic programming techniques in addressing the complex challenges of humanitarian logistics.
 }%
 
-\FUNDING{This research was supported by [grant number, funding agency].}
+%\FUNDING{This research was supported by [grant number, funding agency].}
 
-%Supplemental Material:
-%Data Ethics & Reproducibility Note:
-
-% Sample
-%\KEYWORDS{Stochastic programming, Decision support,Uncertainty, Disaster response, Optimization}
-
-% Fill in data. If unknown, outcomment the field
 \KEYWORDS{Stochastic programming, Decision support,Uncertainty, Disaster response, Optimization} 
+
 %\HISTORY{Received: Month DD, YYYY; Accepted: Month DD, YYYY; Published Online: Month DD, YYYY}
 
 \maketitle
@@ -138,7 +143,9 @@ In humanitarian logistics, efficient resource allocation is paramount for ensuri
 
 Humanitarian crises, such as natural disasters, conflicts, and pandemics, often result in widespread devastation, displacing populations and disrupting essential services. Timely and effective delivery of humanitarian aid is crucial to mitigate the impact of such crises and save lives~\cite{smith2005}. However, humanitarian logistics operations face numerous challenges, including uncertainty in demand, limited resources, logistical constraints, and dynamic operating environments. Optimal resource allocation plays a central role in addressing these challenges by ensuring that available resources are allocated efficiently to meet the needs of affected populations.
 \begin{equation}
-\mathrm{Cost\_Red}_j=\rho_0+\rho_1N_{m_j}+\rho_2N_{l_j}+\rho_3I2_{m_j}+\rho_4I2_{l_j}+\rho_5OS_{m_j}+\phi\mathbf{X}_j+\mu_j
+\mathrm{Cost\_Red}_j=\rho_0+\rho_1N_{m_j}
++\rho_2N_{l_j}+\rho_3I2_{m_j}+\rho_4I2_{l_j}
++\rho_5OS_{m_j}+\phi\mathbf{X}_j+\mu_j
 \end{equation}
 
 In recent years, there has been growing interest in applying mathematical optimization techniques to improve the efficiency and effectiveness of humanitarian logistics operations. Traditional approaches typically rely on deterministic models that assume perfect information and static conditions. However, in practice, humanitarian crises are characterized by uncertainty and variability, making it essential to incorporate stochastic elements into the modeling process. Stochastic programming offers a powerful framework for addressing uncertainty and optimizing decision-making under uncertain conditions.
@@ -296,12 +303,12 @@ Facility Setup Cost    & \$5,000 per facility \down\\ \hline
 \end{table}
 
 \section{Conclusion}\label{sec:Conclusion}
-In this paper, we have presented a stochastic programming approach for optimal resource allocation in humanitarian logistics. Our approach addresses the inherent uncertainty and complexity of humanitarian crises by integrating stochastic elements into the modeling process.\endnote{Sample endnote text.} The proposed model provides decision support for relief agencies to make informed decisions and allocate resources efficiently in uncertain environments.
+In this paper, we have presented a stochastic programming approach for optimal resource allocation in humanitarian logistics. Our approach addresses the inherent uncertainty and complexity of humanitarian crises by integrating stochastic elements into the modeling process. The proposed model provides decision support for relief agencies to make informed decisions and allocate resources efficiently in uncertain environments.
 
 Future research directions include extending the model to incorporate additional complexities, such as multiple objectives, dynamic demand patterns, and real-time data integration. Furthermore, the proposed approach can be applied to other domains, such as disaster response, healthcare delivery, and supply chain management, where uncertainty plays a significant role in decision-making. Overall, our research contributes to the growing body of literature on mathematical optimization in humanitarian operations and demonstrates the potential of stochastic programming to improve decision-making in complex and uncertain environments.
 
 %\THEEndNotes
-\begingroup \parindent 0pt \parskip 0.0ex \def\enotesize{\normalsize} \theendnotes \endgroup
+% \begingroup \parindent 0pt \parskip 0.0ex \def\enotesize{\normalsize} \theendnotes \endgroup
 
 % Appendix here
 % Options are (1) APPENDIX (with or without general title) or
@@ -323,40 +330,8 @@ Future research directions include extending the model to incorporate additional
 \ACKNOWLEDGMENT{We would like to express our sincere gratitude to [acknowledge individuals, organizations, or institutions] for their invaluable contributions to this research. We are also grateful to [mention any additional acknowledgements, such as technical assistance, data providers, or colleagues] for their support and assistance throughout the course of this work.}
 
 
-% References here (outcomment the appropriate case)
-
-% CASE 1: BiBTeX used to constantly update the references
-%   (while the paper is being written).
-%\bibliographystyle{informs2014} % outcomment this and next line in Case 1
-%\bibliography{<your bib file(s)>} % if more than one, comma separated
-
-%\bibliographystyle{informs2014} % outcomment this and next line in Case 1
-%\bibliography{sample} % if more than one, comma separated
-
-% CASE 2: BiBTeX used to generate mypaper.bbl (to be further fine tuned)
-%\input{mypaper.bbl} % outcomment this line in Case 2
-
-%If you don't use BiBTex, you can manually itemize references as shown below.
-
-%\bibliographystyle{nonumber}
-
-\begin{thebibliography}{3}
-\providecommand{\natexlab}[1]{#1}
-\providecommand{\url}[1]{\texttt{#1}}
-\providecommand{\urlprefix}{URL }
-
-\bibitem[{Smith(2005)}]{smith2005}
-Smith J (2005) Optimal resource allocation in humanitarian logistics.
-  \emph{Journal of Operations Research} 30(2):123--135.
-  
-\bibitem[{Jones(2010)}]{jones2010}
-Jones S (2010) Stochastic programming models for humanitarian logistics.
-  \emph{INFORMS Mathematics of Operations Research} 35(4):567--580.
-
-\bibitem[{Brown(2015)}]{brown2015}
-Brown D (2015) \emph{Introduction to Stochastic Programming} (Springer).
-
-\end{thebibliography}
+\bibliographystyle{informs2014} % outcomment this and 
+\bibliography{sample} % if more than one, comma 
 
 
 %%%%%%%%%%%%%%%%%
