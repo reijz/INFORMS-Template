@@ -37,6 +37,19 @@
 \usepackage{algpseudocode}
 \usepackage{tikz}
 % Private macros here (check that there is no clash with the style)
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx,color}
+\usepackage{url}
+\usepackage{subfiles}
+\usepackage{booktabs}
+\usepackage{mathtools}
+\usepackage{microtype}
+\usepackage[english]{babel}
+\usepackage{caption}
+\captionsetup{
+  justification=raggedright,
+  singlelinecheck=false
+  }
 
 \usepackage{hyperref}       % hyperlinks
 \hypersetup{
@@ -311,15 +324,6 @@ Future research directions include extending the model to incorporate additional
 % \begingroup \parindent 0pt \parskip 0.0ex \def\enotesize{\normalsize} \theendnotes \endgroup
 
 % Appendix here
-% Options are (1) APPENDIX (with or without general title) or
-%             (2) APPENDICES (if it has more than one unrelated sections)
-% Outcomment the appropriate case if necessary
-%
-% \begin{APPENDIX}{<Title of the Appendix>}
-% \end{APPENDIX}
-%
-%   or
-%
 % \begin{APPENDICES}
 % \section{<Title of Section A>}
 % \section{<Title of Section B>}
@@ -333,6 +337,24 @@ Future research directions include extending the model to incorporate additional
 \bibliographystyle{informs2014} % outcomment this and 
 \bibliography{sample} % if more than one, comma 
 
+\newpage
+
+\ECSwitch
+
+\ECHead{Proofs}
+
+\section{Proof of Results}
+
+\subsection{Proof of Lemma}
+
+\begin{lemma}
+	\label{lem:A1}
+    As long as $t>8 \frac{d \log 9 +\log (T/\alpha)}{p_{*}^2}$, the following lower bound
+\end{lemma}
+
+\begin{proof}{Proof of Lemma~X}
+Let ...
+\end{proof}
 
 %%%%%%%%%%%%%%%%%
 \end{document}

@@ -1058,12 +1058,17 @@
 
 \def\setoddECRH{\hbox to \textwidth{\fs.7.8.\tabcolsep0pt
   \begin{tabular*}{\textwidth}[b]{l@{\extracolsep\fill}r}
-  {\theECRRHFirstLine}&\\ {\theECRRHSecondLine}&  \raisebox{0pt}[0pt][0pt]{\fs.10.10.\thepage}\\[-4pt]
+  % {\theECRRHFirstLine}&\\ 
+  %{\theECRRHSecondLine}
+  {}&  \raisebox{0pt}[0pt][0pt]{\fs.10.10.\thepage}\\[-4pt]
   \rlap{\VRHDW{0.5pt}{0pt}{\textwidth}}&\\
   \end{tabular*}}}
 \def\setevenECRH{\hbox to \textwidth{\fs.7.8.\tabcolsep0pt
   \begin{tabular*}{\textwidth}[b]{l@{\extracolsep\fill}r}
-  &{\theECLRHFirstLine}\\ \raisebox{0pt}[0pt][0pt]{\fs.10.10.\thepage}&{\theECLRHSecondLine}\\[-4pt]
+  %&{\theECLRHFirstLine}\\ 
+  \raisebox{0pt}[0pt][0pt]{\fs.10.10.\thepage}&{}
+  %{\theECLRHSecondLine}
+  \\[-4pt]
   \rlap{\VRHDW{0.5pt}{0pt}{\textwidth}}&\\
   \end{tabular*}}}
 
